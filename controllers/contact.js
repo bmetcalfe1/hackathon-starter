@@ -23,8 +23,8 @@ exports.getContact = (req, res) => {
  * Send a contact form via Nodemailer.
  */
 exports.postContact = (req, res) => {
-  console.log("myreq", req);
-  console.log("myres", res);
+  //console.log("myreq", req);
+  //console.log("myres", res);
   req.assert('name', 'Name cannot be blank').notEmpty();
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('message', 'Message cannot be blank').notEmpty();
@@ -32,7 +32,7 @@ exports.postContact = (req, res) => {
   const errors = req.validationErrors();
 
   if (errors) {
-    console.log("whooo the error");
+    //console.log("whooo the error");
     req.flash('errors', errors);
     return res.redirect('/contact');
   }
@@ -45,11 +45,11 @@ exports.postContact = (req, res) => {
   };
 
   transporter.sendMail(mailOptions, (err) => {
-    console.log("mytransporter", transporter);
-    console.log("mymailoptions", mailOptions);
+    //console.log("mytransporter", transporter);
+    //console.log("mymailoptions", mailOptions);
     if (err) {
-      console.log("whyyy the error");
-      console.log("theerror", err);
+      //console.log("whyyy the error");
+      //console.log("theerror", err);
       req.flash('errors', { msg: err.message });
       return res.redirect('/contact');
     }
