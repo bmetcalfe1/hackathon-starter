@@ -7,7 +7,6 @@ const transporter = nodemailer.createTransport({
     pass: 'notmanHouse1'
   }
 });
-
 /**
  * GET /contact
  * Contact form page.
