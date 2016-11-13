@@ -38,10 +38,10 @@ exports.postContact = (req, res) => {
   }
 
   const mailOptions = {
-    to: 'adrien.peynichou@gmail.com',
+    to: 'bgmetcalfe@gmail.com',
     from: `${req.body.name} <${req.body.email}>`,
     subject: 'Notman House | Tour Request',
-    text: req.body.message
+    text: "Date: " + req.body.date + " " + "Time: " + req.body.time + " " + "Message: " + req.body.message
   };
 
   transporter.sendMail(mailOptions, (err) => {
